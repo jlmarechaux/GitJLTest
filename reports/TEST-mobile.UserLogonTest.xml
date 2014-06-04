@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="ADMINIB-V1OI43P" name="mobile.UserLogonTest" tests="1" time="0.02" timestamp="2014-04-17T19:13:35">
+  <properties>
+    <property name="java.vendor" value="IBM Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="eclipse.pdebuild.templates" value="/C:/laptop/tools/IBM/IBMIMShared/plugins/org.eclipse.pde.build_3.8.2.v20121114-140810/templates/" />
+    <property name="os.name" value="Windows 7" />
+    <property name="sun.boot.class.path" value="C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\bin\default\jclSC160\vm.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\annotation.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\beans.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\java.util.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\jndi.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\logging.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\security.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\sql.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmorb.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmorbapi.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmcfw.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\rt.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\charsets.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\resources.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmpkcs.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmcertpathfw.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmjgssfw.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmjssefw.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmsaslfw.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmjcefw.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmjgssprovider.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmjsseprovider2.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ibmcertpathprovider.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\management-agent.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\xml.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\jlm.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\javascript.jar" />
+    <property name="sun.java2d.fontpath" value="" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ant.home" value="C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609" />
+    <property name="java.runtime.version" value="pwa6460sr15-20131017_01 (SR15)" />
+    <property name="hamcrest" value="C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project/org.hamcrest.core.jar" />
+    <property name="user.name" value="jlmarechaux" />
+    <property name="java.compiler" value="j9jit24" />
+    <property name="os.encoding" value="UTF8" />
+    <property name="com.ibm.util.extralibs.properties" value="" />
+    <property name="com.ibm.jcl.checkClassPath" value="" />
+    <property name="user.language" value="en" />
+    <property name="com.ibm.oti.vm.bootstrap.library.path" value="C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\bin\default;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\bin" />
+    <property name="sun.boot.library.path" value="C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\bin\default;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\bin" />
+    <property name="ant.project.default-target" value="all" />
+    <property name="ant.project.name" value="Local-JKE-Mobile" />
+    <property name="java.version" value="1.6.0" />
+    <property name="user.timezone" value="" />
+    <property name="ant.file.Local-JKE-Mobile" value="C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project\local-jke-build.xml" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\endorsed" />
+    <property name="com.ibm.oti.vm.library.version" value="24" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="jxe.current.romimage.version" value="15" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="50.0" />
+    <property name="junitJar" value="C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project/junit.jar" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre" />
+    <property name="java.vm.info" value="JRE 1.6.0 IBM J9 2.4 Windows 7 amd64-64 jvmwa6460sr15-20131016_170922 (JIT enabled, AOT enabled)&#xa;J9VM - 20131016_170922&#xa;JIT  - r9_20130920_46510ifx2&#xa;GC   - GA24_Java6_SR15_20131016_1337_B170922" />
+    <property name="ant.file" value="C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project\local-jke-build.xml" />
+    <property name="os.version" value="6.1 build 7601 Service Pack 1" />
+    <property name="java.awt.fonts" value="" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="2.4" />
+    <property name="java.util.prefs.PreferencesFactory" value="java.util.prefs.WindowsPreferencesFactory" />
+    <property name="user.variant" value="" />
+    <property name="ant.library.dir" value="C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="destdir" value="C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project/bin" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="ibm.signalhandling.sigint" value="true" />
+    <property name="java.assistive" value="ON" />
+    <property name="ant.file.type.Local-JKE-Mobile" value="file" />
+    <property name="eclipse.pdebuild.scripts" value="/C:/laptop/tools/IBM/IBMIMShared/plugins/org.eclipse.pde.build_3.8.2.v20121114-140810/scripts/" />
+    <property name="user.home" value="C:\Users\IBM_ADMIN" />
+    <property name="com.ibm.cpu.endian" value="little" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ibm.signalhandling.sigchain" value="true" />
+    <property name="java.library.path" value="C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\bin\compressedrefs;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\bin;C:\windows\system32;C:\windows;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\IBM\Infoprint Select;C:\Program Files\ThinkPad\Bluetooth Software\;C:\Program Files\ThinkPad\Bluetooth Software\syswow64;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Lenovo\Access Connections\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\13.0\DLLShared\;C:\Program Files (x86)\IBM\Personal Communications\;C:\Program Files (x86)\IBM\Trace Facility\;c:\notes;c:\notes;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;.;C:\laptop\tools\clm-releases\clm-406\TeamConcert\configuration\org.eclipse.osgi\bundles\564\1\.cp" />
+    <property name="java.vendor.url" value="http://www.ibm.com/" />
+    <property name="java.vm.vendor" value="IBM Corporation" />
+    <property name="java.fullversion" value="JRE 1.6.0 IBM J9 2.4 Windows 7 amd64-64 jvmwa6460sr15-20131016_170922 (JIT enabled, AOT enabled)&#xa;J9VM - 20131016_170922&#xa;JIT  - r9_20130920_46510ifx2&#xa;GC   - GA24_Java6_SR15_20131016_1337_B170922" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner -Dorg.eclipse.ant.core.ANT_PROCESS_ID=1397762013514 -Declipse.connect.port=60822 -Declipse.pdebuild.home=/C:/laptop/tools/IBM/IBMIMShared/plugins/org.eclipse.pde.build_3.8.2.v20121114-140810/./ -Declipse.pdebuild.scripts=/C:/laptop/tools/IBM/IBMIMShared/plugins/org.eclipse.pde.build_3.8.2.v20121114-140810/scripts/ -Declipse.pdebuild.templates=/C:/laptop/tools/IBM/IBMIMShared/plugins/org.eclipse.pde.build_3.8.2.v20121114-140810/templates/ -Dant.home=C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609 -logger org.eclipse.ant.internal.launching.remote.logger.RemoteAntBuildLogger -inputhandler org.eclipse.ant.internal.ui.antsupport.inputhandler.ProxyInputHandler -buildfile C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project\local-jke-build.xml" />
+    <property name="java.class.path" value="C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-antlr.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-apache-bcel.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-apache-bsf.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-apache-log4j.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-apache-oro.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-apache-regexp.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-apache-resolver.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-apache-xalan2.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-commons-logging.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-commons-net.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-jai.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-javamail.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-jdepend.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-jmf.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-jsch.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-junit.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-junit4.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-launcher.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-netrexx.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-swing.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant-testutil.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\configuration\org.eclipse.osgi\bundles\368\1\.cp\lib\antdebug.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\configuration\org.eclipse.osgi\bundles\368\1\.cp\lib\remote.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\configuration\org.eclipse.osgi\bundles\369\1\.cp\lib\remoteAnt.jar;C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\lib\tools.jar;C:\laptop\tools\IBM\IBMIMShared\plugins\org.eclipse.swt.win32.win32.x86_64_3.100.1.v4236b.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.3 compiled on February 26 2012" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="eclipse.pdebuild.home" value="/C:/laptop/tools/IBM/IBMIMShared/plugins/org.eclipse.pde.build_3.8.2.v20121114-140810/./" />
+    <property name="java.io.tmpdir" value="C:\Users\IBM_AD~1\AppData\Local\Temp\" />
+    <property name="java.jcl.version" value="20131015_01" />
+    <property name="ibm.system.encoding" value="Cp1252" />
+    <property name="ibm.signalhandling.rs" value="false" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.ext.dirs" value="C:\laptop\tools\clm-releases\clm-406\TeamConcert\jdk\jre\lib\ext" />
+    <property name="user.dir" value="C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.name" value="IBM J9 VM" />
+    <property name="com.ibm.oti.shared.enabled" value="false" />
+    <property name="com.ibm.vm.bitmode" value="64" />
+    <property name="basedir" value="C:\laptop\tools\clm-releases\clm-406\Workspaces\deb\jke-mobile-project" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="ant.core.lib" value="C:\laptop\tools\IBM\IBMIMShared\plugins\org.apache.ant_1.8.3.v201301120609\lib\ant.jar" />
+    <property name="jxe.lowest.romimage.version" value="15" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="com.ibm.oti.jcl.build" value="20131016_170922" />
+    <property name="com.ibm.oti.configuration" value="scar" />
+    <property name="ant.project.invoked-targets" value="all" />
+  </properties>
+  <testcase classname="mobile.UserLogonTest" name="testValidateUser" time="0.0010" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

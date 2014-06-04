@@ -1,0 +1,248 @@
+<!--
+
+This sample build demonstrates a simple ant build that compiles and tests
+code and uses the jazz build toolkit to publish the results.
+
+The build file must be invoked by the jazz build engine.
+
+Prerequisites:
+
+1. Create a new Ant build definition in Jazz. Set the "Build file" field on the Ant page 
+to this build file.
+ 
+2. You must download the eclipse JDT standalone compiler (ecj.jar) to use this build file.
+Find it in the eclipse.org platform downloads. Look for "JDT Core Batch Compiler". Version 
+3.3.4 or later of the JDT compiler is required in order to publish xml compile logs.
+For earlier versions, only the simple, non-xml compile log format is supported.
+
+3. You must edit the "Ant arguments" field on the Ant page of the build definition editor
+to point to your location of ecj.jar. For example, assuming you saved ecj.jar to C:\,
+you would set the Ant arguments to: -lib C:\ecj.jar
+
+4. You must update the junitJar property in this build file to point at a junit.jar. 
+To get junit.jar, you can use the one from an eclipse installation (eclipse\plugins\junit...)
+or download it from junit.org.
+
+5. You must update the userId and password properties in this build file to specify a valid
+user and password for your Jazz repository. Search for ADMIN below.
+
+-->
+
+<project name="JKE-Mobile" default="all">
+
+	<echo message="Base Dir = ${basedir}" />
+	<echo message="Target Dir = ${loadDirectory}/${buildLabel}" />
+	
+	<!-- Path to junit.jar. Update this property to point at a valid junit.jar. -->
+	<property name="junitJar"
+	          value="${jazzBuildEngine}/junit.jar" />
+	<property name="hamcrest"
+		          value="${jazzBuildEngine}/org.hamcrest.core.jar" />
+
+
+	<!-- Path to the compile output log. -->
+	<!-- <property name="compileLog" value="${basedir}/compile.xml" /> -->
+	<property name="compileLog" value="${loadDirectory}/${buildLabel}/compile.xml" />
+
+
+	<!-- Typically, you should not use ADMIN, but instead
+	     define a special build user. -->
+	 <property name="userId" value="sysbuild" />
+	 <property name="password" value="sysbuild" />
+	
+	<target name="all" depends="checkEnv, runBuild" />
+
+
+	<target name="runBuild" depends="compile, test">
+		<echo message="Build ${buildDefinitionId} completed." />
+	</target>
+
+	<target name="compile">
+		<!-- Update the build progress in Jazz by starting a new build activity. -->
+		<startBuildActivity activityIdProperty="compileActivityId"
+		                    label="compiling..."
+		                    buildResultUUID="${buildResultUUID}"
+		                    repositoryAddress="${repositoryAddress}"
+		                    userId="${userId}"
+		                    password="${password}" />
+
+		<property name="build.compiler"
+		          value="org.eclipse.jdt.core.JDTCompilerAdapter" />
+
+		<property name="destdir" value="${basedir}/bin" />
+
+		<delete dir="${destdir}" />
+		<mkdir dir="${destdir}" />
+
+		<javac srcdir="${basedir}/src"
+		       destdir="${destdir}"
+		       source="1.5"
+		       target="1.5"
+		       debug="on"
+		       nowarn="on"
+		       failonerror="false">
+
+			<classpath>
+				<pathelement path="${junitJar}" />
+			</classpath>
+
+			<compilerarg line="-1.5 -log ${compileLog}" />
+		</javac>
+
+		<!-- Publish the compile log to Jazz. -->
+		<jdtCompileLogPublisher buildResultUUID="${buildResultUUID}"
+		                        repositoryAddress="${repositoryAddress}"
+		                        userId="${userId}"
+		                        password="${password}"
+		                        filePath="${compileLog}" />
+
+
+
+		<jar basedir="${destdir}" destfile="${loadDirectory}/${buildLabel}/jke-mobile.jar" />
+
+		<!-- Publish some downloadable artifacts. Files published with the 
+		     artifactFilePublisher are shown on the Downloads tab of the build
+		     result editor. -->
+
+		<artifactFilePublisher buildResultUUID="${buildResultUUID}"
+		                       repositoryAddress="${repositoryAddress}"
+		                       userId="${userId}"
+		                       password="${password}"
+		                       verbose="true"
+		                       filePath="${loadDirectory}/${buildLabel}/jke-mobile.jar"
+		                       label="The JKE mobile jar" />
+		
+		<!-- Complete the compile build activity. -->
+		<completeBuildActivity activityId="${compileActivityId}"
+		                       buildResultUUID="${buildResultUUID}"
+		                       repositoryAddress="${repositoryAddress}"
+		                       userId="${userId}"
+		                       password="${password}" />
+		
+	</target>
+
+	<target name="test">
+
+		<echo message="Starting automated tests (junit)" />
+		<!-- Update the build progress in Jazz by starting a new build activity. -->
+		<startBuildActivity activityIdProperty="testActivityId"
+		                    label="testing..."
+		                    buildResultUUID="${buildResultUUID}"
+		                    repositoryAddress="${repositoryAddress}"
+		                    userId="${userId}"
+		                    password="${password}" />
+
+		<!-- Run junit tests and create xml report for each test. -->
+		<junit printsummary="yes">
+			<classpath>
+			      <pathelement location="${basedir}/bin" />    
+			      <pathelement location="${junitJar}"/>
+				<pathelement location="${hamcrest}"/>
+			</classpath>
+			<formatter type="xml" />
+			<batchtest todir="${basedir}/reports">
+		        <fileset dir="${basedir}/src" includes="**/*Test*" />
+		    </batchtest>
+		</junit>
+		
+		<!-- Merge the junit report files in one consolidated report. -->
+		<junitreport todir="${basedir}/reports" tofile="MobileTest.xml">
+		  <fileset dir="${basedir}/reports">
+		    <include name="TEST-*.xml"/>
+		  </fileset>
+		  <!-- <report format="frames" todir="${basedir}/reports"/> -->
+		</junitreport>
+
+		<!-- Publish the raw junit log. (Logs tab) -->
+		<logPublisher buildResultUUID="${buildResultUUID}"
+		              repositoryAddress="${repositoryAddress}"
+		              userId="${userId}"
+		              password="${password}"
+		              filePath="${basedir}/reports/MobileTest.xml"
+		              label="Raw JUnit log" />
+
+
+		<!-- Publish the JUnit log to Jazz. 
+			 JUnit results published in this way are shown on the Tests tab of the build result editor. 
+			 You must use the junit task's formatter type=xml to get a junit xml log for publishing. -->
+		<junitLogPublisher filePath="${basedir}/reports/MobileTest.xml"
+		                   buildResultUUID="${buildResultUUID}"
+		                   repositoryAddress="${repositoryAddress}"
+		                   userId="${userId}"
+		                   password="${password}" />
+		
+		<!-- Complete the test build activity. -->
+		<completeBuildActivity activityId="${testActivityId}"
+		                       buildResultUUID="${buildResultUUID}"
+		                       repositoryAddress="${repositoryAddress}"
+		                       userId="${userId}"
+		                       password="${password}" />
+		
+		<echo message="End of automated tests (junit)" />
+	</target>
+
+
+	<target name="checkEnv">
+		<fail message="The repositoryAddress property must be defined."
+		      unless="repositoryAddress" />
+		<echo message="Using repositoryAddress = ${repositoryAddress}" />
+
+		<fail message="The userId property must be defined." unless="userId" />
+		<echo message="Using userId = ${userId}" />
+
+		<fail message="The password property must be defined."
+		      unless="password" />
+		<!-- Don't echo the password. -->
+
+		<fail message="The buildDefinitionId property must be defined."
+		      unless="buildDefinitionId" />
+		<echo message="Using buildDefinitionId = ${buildDefinitionId}" />
+
+		<fail message="The junitJar property must be defined."
+		      unless="junitJar" />
+		<echo message="Using junitJar = ${junitJar}" />
+		
+		<fail message="The hamcrest property must be defined."
+				      unless="hamcrest" />
+				<echo message="Using hamcrest = ${hamcrest}" />
+
+		<available file="${junitJar}" property="junitJarFound" />
+		<fail message="junit.jar not found at ${junitJar}. You must define the junitJar property to point at your location of junit.jar. To get junit.jar, you can use the one from an eclipse installation (eclipse\plugins\junit...) or download it from junit.org."
+		      unless="junitJarFound" />
+	</target>
+
+
+	<!-- These task definitions make the Jazz ant tasks available to this build file.
+	     In order to find these classnames at run time, ant must be invoked with:
+	
+		     -lib <buildsystem-location>/buildtoolkit
+	 -->
+	
+	<taskdef name="artifactFilePublisher"
+	         classname="com.ibm.team.build.ant.task.ArtifactFilePublisherTask" />
+
+	<taskdef name="artifactLinkPublisher"
+	         classname="com.ibm.team.build.ant.task.ArtifactLinkPublisherTask" />
+
+	<taskdef name="filePublisher"
+	         classname="com.ibm.team.build.ant.task.FilePublisherTask" />
+
+	<taskdef name="jdtCompileLogPublisher"
+	         classname="com.ibm.team.build.ant.task.JdtCompileLogPublisherTask" />
+
+	<taskdef name="junitLogPublisher"
+	         classname="com.ibm.team.build.ant.task.JUnitLogPublisherTask" />
+
+	<taskdef name="linkPublisher"
+	         classname="com.ibm.team.build.ant.task.LinkPublisherTask" />
+
+	<taskdef name="logPublisher"
+	         classname="com.ibm.team.build.ant.task.LogPublisherTask" />
+
+	<taskdef name="startBuildActivity"
+	         classname="com.ibm.team.build.ant.task.StartBuildActivityTask" />
+
+	<taskdef name="completeBuildActivity"
+	         classname="com.ibm.team.build.ant.task.CompleteBuildActivityTask" />
+
+</project>

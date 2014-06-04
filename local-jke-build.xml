@@ -1,0 +1,44 @@
+<project name="Local-JKE-Mobile" default="all">
+
+	<target name="all" depends="compile, test" /> 
+	
+	<echo message="Base Dir Local= ${basedir}" />
+	<!-- Path to junit.jar. Update this property to point at a valid junit.jar. -->
+	<property name="junitJar" value="${basedir}/junit.jar" />
+	<property name="hamcrest" value="${basedir}/org.hamcrest.core.jar" />
+
+	<target name="compile">
+
+
+		<property name="destdir" value="${basedir}/bin" />
+
+		<delete dir="${destdir}" />
+		<mkdir dir="${destdir}" />
+		<javac srcdir="${basedir}/src" destdir="${destdir}">
+			<classpath>
+				<pathelement path="${junitJar}" />
+			</classpath>
+		</javac>
+
+	</target>
+
+	<target name="test">
+
+		<junit printsummary="yes">
+			<classpath>
+				<pathelement location="${basedir}/bin" />
+				<pathelement location="${junitJar}" />
+				<pathelement location="${hamcrest}" />
+			</classpath>
+			<formatter type="xml" />
+			<batchtest todir="${basedir}/reports">
+				<fileset dir="${basedir}/src" includes="**/*Test*" />
+			</batchtest>
+		</junit>
+
+	</target>
+
+
+
+
+</project>
